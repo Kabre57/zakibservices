@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -6,14 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  tableData: any[][] = [];
+  constructor(public  translateService: TranslateService) {}
 
-  constructor() {
-    this.tableData = [
-      ['Cellule 1', 'Cellule 2'],
-      ['Cellule 3', 'Cellule 4'],
-      ['Cellule 5', 'Cellule 6'],
-      ['Cellule 7', 'Cellule 8']
-    ];
+  switchLanguage(language: string) {
+    this.translateService.use(language);
   }
 }
